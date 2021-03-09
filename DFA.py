@@ -1,3 +1,5 @@
+import sys
+
 class DFA:
     def __init__(self):
         self.trans_table = []
