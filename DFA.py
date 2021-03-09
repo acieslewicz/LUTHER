@@ -7,25 +7,15 @@ class DFA:
         self.acc_states = set()
 
     def load_dfa(self, file_name, ordered_chars):
-        try:
-            with open(file_name, "r") as dfa_file:
-                dfa_def = dfa_file.readlines()
-
-            if len(dfa_def) == 0:
-                print("Error: File is empty.", file=sys.stderr)
-                exit(1)
-                
-            for line in dfa_def:
-                rules = line.split()
-                if rules[0] == "+":
-                    self.acc_states.add(int(rules[1]))
-                self.trans_table.append(rules[2:])
-            
-            self.map_chars(ordered_chars)
-            
-        except IOError:
-            print("Error: DFA file does not appear to exist.", file=sys.stderr)
-            exit(1)
+        with open(file_name, "r") as dfa_file:
+            dfa_def = dfa_file.readlines()
+        for line in dfa_def:
+            rules = line.split()
+            if rules[0] == "+":
+                self.acc_states.add(int(rules[1]))
+            self.trans_table.append(rules[2:])
+        
+        self.map_chars(ordered_chars)
         
 
     def map_chars(self, ordered_chars):
