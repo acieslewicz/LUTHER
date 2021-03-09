@@ -146,7 +146,7 @@ def find_tokens(scanners, source):
 def lexer(def_file, source_file, out_file):
     definition = read_def(def_file)
     source, line_sizes = read_source(source_file)
-    scanners = scan_def(def_file)
+    scanners = scan_def(definition)
     results = find_tokens(scanners, source)
     results_to_file(results, source, line_sizes, out_file)
 
