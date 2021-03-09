@@ -24,7 +24,7 @@ class DFA:
             self.map_chars(ordered_chars)
             
         except IOError:
-            print("Error: File does not appear to exist.", file=sys.stderr)
+            print("Error: DFA file does not appear to exist.", file=sys.stderr)
             exit(1)
         
 

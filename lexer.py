@@ -15,7 +15,7 @@ def read_def(def_file):
             print("Error: File is empty.", file=sys.stderr)
             exit(1)
     except IOError:
-        print("Error: File does not appear to exist.", file=sys.stderr)
+        print("Error: Def file does not appear to exist.", file=sys.stderr)
         exit(1)
 
     return lines
@@ -63,7 +63,7 @@ def read_source(source_file):
             print("Error: File is empty.", file=sys.stderr)
             exit(0)
     except IOError:
-        print("Error: File does not appear to exist.", file=sys.stderr)
+        print("Error: Source file does not appear to exist.", file=sys.stderr)
         exit(1)
     
     return data, line_sizes
