@@ -61,7 +61,7 @@ def read_source(source_file):
             line_sizes = [len(x) for x in lines]
         if len(data) == 0:
             print("Error: File is empty.", file=sys.stderr)
-            exit(1)
+            exit(0)
     except IOError:
         print("Error: File does not appear to exist.", file=sys.stderr)
         exit(1)
