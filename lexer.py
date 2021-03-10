@@ -42,10 +42,11 @@ def scan_def(definition, parent_folder):
     characters = extract_chars(definition[0])
     scanners = set()
     for line in definition[1:]:
-        line = line.strip().split()
-        temp = SCANNER.SCANNER(*line[1:])
-        temp.initialize(parent_folder + "/" + line[0], characters)
-        scanners.add(temp)
+        if len(line) != 0:
+            line = line.strip().split()
+            temp = SCANNER.SCANNER(*line[1:])
+            temp.initialize(parent_folder + "/" + line[0], characters)
+            scanners.add(temp)
     
     return scanners
 
