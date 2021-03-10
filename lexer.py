@@ -102,7 +102,7 @@ def results_to_file(results, source, line_sizes, file):
                 if result[0].value is None:
                     print(f"{result[0].id} {string_to_alphabet(source[result[1][0]:result[1][1]])} {line} {col}", file=f)
                 else:
-                    print(f"{result[0].id} {string_to_alphabet(result[0].value)} {line} {col}", file=f)
+                    print(f"{result[0].id} {result[0].value} {line} {col}", file=f)
     except IOError:
         print("Error: File does not appear to exist.", file=sys.stderr)
         exit(1)
