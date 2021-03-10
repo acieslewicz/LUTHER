@@ -73,7 +73,7 @@ def char_to_alphabet(char):
 def string_to_alphabet(string):
     return_string = ""
     for char in string:
-        if char.isalpha() or char.isdigit() and char != "x":
+        if (char.isalpha() or char.isdigit()) and char != "x":
             return_string += char
         else:
             return_string += char_to_alphabet(char)
