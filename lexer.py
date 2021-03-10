@@ -38,13 +38,13 @@ def extract_chars(char_line):
     
     return characters
 
-def scan_def(definition):
+def scan_def(definition, parent_folder):
     characters = extract_chars(definition[0])
     scanners = set()
     for line in definition[1:]:
         line = line.strip().split()
         temp = SCANNER.SCANNER(*line[1:])
-        temp.initialize(line[0], characters)
+        temp.initialize(parent_folder + "/" + line[0], characters)
         scanners.add(temp)
     
     return scanners
@@ -145,8 +145,9 @@ def find_tokens(scanners, source):
 
 def lexer(def_file, source_file, out_file):
     definition = read_def(def_file)
+    parent_folder = def_file.split()[0]
     source, line_sizes = read_source(source_file)
-    scanners = scan_def(definition)
+    scanners = scan_def(definition, parent_folder)
     results = find_tokens(scanners, source)
     results_to_file(results, source, line_sizes, out_file)
 
