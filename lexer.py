@@ -145,11 +145,11 @@ def find_tokens(scanners, source):
 
 def lexer(def_file, source_file, out_file):
     definition = read_def(def_file)
-    parent_folder = def_file.split()[0]
+    parent_folder = def_file.split("/")[0]
     source, line_sizes = read_source(source_file)
     scanners = scan_def(definition, parent_folder)
     results = find_tokens(scanners, source)
     results_to_file(results, source, line_sizes, out_file)
 
 if __name__ == "__main__":
-    lexer("test.txt", "program.src", "output.test")
+    lexer("_luthertest/tied/a/scan.u", "_luthertest/tied/a/program.src", "./_output.tok")
