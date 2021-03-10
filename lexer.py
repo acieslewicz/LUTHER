@@ -42,8 +42,9 @@ def scan_def(definition, parent_folder):
     characters = extract_chars(definition[0])
     scanners = set()
     for line in definition[1:]:
+        line = line.strip()
         if len(line) != 0:
-            line = line.strip().split()
+            line = line.split()
             temp = SCANNER.SCANNER(*line[1:])
             temp.initialize(parent_folder + "/" + line[0], characters)
             scanners.add(temp)
@@ -153,4 +154,4 @@ def lexer(def_file, source_file, out_file):
     results_to_file(results, source, line_sizes, out_file)
 
 if __name__ == "__main__":
-    lexer("_luthertest/tied/a/scan.u", "_luthertest/tied/a/program.src", "./_output.tok")
+    lexer("_luthertest/complex/a/scan.u", "_luthertest/complex/a/program.src", "./_output.tok")
